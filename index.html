@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title></title>
+		
+</head>
+<body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC8ws3WDKtyIqqMp2jaQcNbWUcxV-Uny2M",
+    authDomain: "accounting-15cdd.firebaseapp.com",
+    projectId: "accounting-15cdd",
+    storageBucket: "accounting-15cdd.appspot.com",
+    messagingSenderId: "797576203381",
+    appId: "1:797576203381:web:29bf1ce91b0de2c675fc3c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.app().name;
+  
+  let firestore = firebase.firestore();
+
+  let query = firestore.collection('accounts');
+  query.onSnapshot((snapshot) => {
+    snapshot.docChanges().forEach((change) => {
+      console.info(change.doc.data())
+    })
+  })
+</script>
+</body>
+</html>
